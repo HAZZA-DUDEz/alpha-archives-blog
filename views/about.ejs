@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "About - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+
+<body class="about-bg">
+  <div class="about-overlay">
+    <main class="about-shell">
+      <section class="about-panel">
+          <!-- NAV (start-style, but about-specific classes) -->
+          <header class="about-nav">
+            <div class="about-nav-center">
+              <a class="about-nav-btn" href="/blogs">BLOGS</a>
+              <a class="about-nav-btn" href="/auth">SIGN-IN / SIGN-UP</a>
+            </div>
+          </header>
+
+            <div class="about-social" aria-label="Social links">
+              <a href="#" aria-label="Instagram">
+                <img src="/icons/instagram-white.png" alt="Instagram Icon">
+              </a>
+              <a href="#" aria-label="Facebook">
+                <img src="/icons/facebook-white.png" alt="Facebook Icon">
+              </a>
+              <a href="#" aria-label="X">
+                <img src="/icons/twitter-white.png" alt="Twitter Icon">
+              </a>
+              <a href="#" aria-label="Discord">
+                <img src="/icons/discord-white.png" alt="Discord Icon">
+              </a>
+            </div>
+            <!-- LOGO -->
+            <div class="about-logo">
+              <a href="/" aria-label="Go to Alpha Archives home">
+                <img
+                  src="/images/AlphaArchives-Logo.png"
+                  alt="Alpha Archives"
+                  class="about-logo-img"
+                />
+              </a>
+            </div>
+            <!-- ABOUT TEXT BOX -->
+            <div class="about-box">
+              <h1>About Alpha Archives</h1>
+                <p>
+                  Alpha Archives is a fan-made community space dedicated to
+                  Minecraft Alpha — sharing memories, builds, mods, and stories
+                  from the earliest days of the game.
+                </p>
+                <p>
+                  This project is built for learning, creativity, and community.
+                  It is not affiliated with Mojang or Microsoft.
+                </p>
+            </div>
+          <footer class="about-footer-nav">
+            <div class="about-footer-inner">
+              <p class="about-footer-main">
+              © <%= new Date().getFullYear() %> Alpha Archives
+              </p>
+              <p class="about-footer-sub">
+              All rights reserved · Fan project · Not affiliated with Mojang
+              </p>
+            </div>
+          </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

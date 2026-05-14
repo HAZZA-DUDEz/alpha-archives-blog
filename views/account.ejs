@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "My Account - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+
+<body class="account-bg">
+  <div class="account-overlay">
+
+    <main class="account-shell">
+      <section class="account-panel">
+
+        <!-- TOP NAV -->
+        <header class="account-nav">
+          <a class="account-nav-btn" href="/about">ABOUT</a>
+          <a class="account-nav-btn" href="/blogs">BLOGS</a>
+
+          <form action="/logout" method="POST" class="account-logout-form">
+            <button type="submit" class="account-nav-btn account-nav-btn--button">
+              LOGOUT
+            </button>
+          </form>
+        </header>
+
+        <!-- LOGO -->
+        <div class="account-logo">
+          <a href="/" aria-label="Go to Alpha Archives home">
+            <img
+              src="/images/AlphaArchives-Logo.png"
+              alt="Alpha Archives"
+              class="account-logo-img"
+            />
+          </a>
+        </div>
+        <!-- CONTENT -->
+        <section class="account-content">
+          <!-- PROFILE CARD -->
+          <div class="account-card">
+            <div class="account-profile">
+              <img
+                src="/avatars/<%= user.avatar || 'default' %>.png"
+                alt="Avatar"
+                class="account-avatar"
+              />
+              <h1 class="account-username"><%= user.username %></h1>
+              <p class="account-version">
+                Favourite Alpha Version:
+                <span><%= user.favVersion %></span>
+              </p>
+            </div>
+            <!-- ACTIONS -->
+            <div class="account-actions">
+              <a href="/compose" class="account-action-btn">
+                CREATE BLOG
+              </a>
+            </div>
+          </div>
+          <!-- MY BLOGS -->
+          <h3 class="account-section-title">My Blogs</h3>
+          <% if (userPosts.length === 0) { %>
+            <div class="account-empty">
+              You haven’t written any blogs yet.
+            </div>
+          <% } else { %>
+            <div class="account-grid">
+              <% userPosts.forEach((post) => { %>
+                <article class="account-post">
+
+                  <div class="account-post-media">
+                    <img
+                      src="<%= post.imageUrl || '/images/default-post.png' %>"
+                      alt="<%= post.title %>"
+                    />
+                  </div>
+
+                  <div class="account-post-body">
+                    <h4 class="account-post-title"><%= post.title %></h4>
+
+                    <div class="account-post-tags">
+                      <span class="account-chip">#<%= post.subject %></span>
+                      <span class="account-chip account-chip--muted">
+                        <%= post.alphaVersion %>
+                      </span>
+                    </div>
+
+                    <p class="account-post-date">
+                      <%= formatDate(post.createdAt) %>
+                    </p>
+
+                    <a
+                      href="/posts/<%= post.id %>"
+                      class="account-read-btn"
+                    >
+                      READ
+                    </a>
+                  </div>
+
+                </article>
+              <% }) %>
+            </div>
+
+          <% } %>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="account-footer-nav">
+          <div class="account-footer-inner">
+            <p class="account-footer-main">
+              © <%= new Date().getFullYear() %> Alpha Archives
+            </p>
+            <p class="account-footer-sub">
+              All rights reserved · Fan project · Not affiliated with Mojang
+            </p>
+          </div>
+        </footer>
+
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>

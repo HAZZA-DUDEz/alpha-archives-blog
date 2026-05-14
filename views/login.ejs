@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "Sign In - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+<body class="login-bg">
+  <div class="login-overlay">
+    <main class="login-shell">
+      <section class="login-panel">
+        <header class="login-nav">
+          <a class="login-nav-btn" href="/about">ABOUT</a>
+          <a class="login-nav-btn" href="/blogs">BLOGS</a>
+          <a class="login-nav-btn" href="/auth">SIGN-IN / SIGN-UP</a>
+        </header>
+        <div class="login-logo login-logo--small">
+          <a href="/" aria-label="Go to Alpha Archives home">
+            <img
+              src="/images/AlphaArchives-Logo.png"
+              alt="Alpha Archives"
+              class="login-logo-img"
+            />
+          </a>
+        </div>
+        <section class="login-hero">
+          <div class="login-hero-card">
+            <div class="login-title">Sign In</div>
+            <div class="login-sub">
+              Welcome back — enter your details to continue.
+            </div>
+            <% if (error) { %>
+              <p class="login-error"><%= error %></p>
+            <% } %>
+            <form action="/login" method="POST" class="login-form">
+              <div class="login-field">
+                <label>Username</label>
+                <input type="text" name="username" required />
+              </div>
+              <div class="login-field">
+                <label>Password</label>
+                <input type="password" name="password" required />
+              </div>
+              <button type="submit" class="login-btn login-btn--full">
+                SIGN IN
+              </button>
+              <p class="login-foot">
+                Don’t have an account?
+                <a href="/signup" class="login-link">Create one</a>
+              </p>
+            </form>
+          </div>
+        </section>
+        <footer class="login-footer-nav">
+          <div class="login-footer-inner">
+            <p class="login-footer-main">
+              © <%= new Date().getFullYear() %> Alpha Archives
+            </p>
+            <p class="login-footer-sub">
+              All rights reserved · Fan project · Not affiliated with Mojang
+            </p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

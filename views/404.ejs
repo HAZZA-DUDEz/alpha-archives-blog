@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>404 - Page Not Found</title>
+  <%- include("partials/head") %>
+</head>
+
+<body class="nf-bg">
+  <div class="nf-overlay">
+    <main class="nf-shell">
+      <section class="nf-panel">
+
+        <!-- TOP NAV -->
+        <header class="nf-nav">
+          <a class="nf-nav-btn" href="/about">ABOUT</a>
+          <a class="nf-nav-btn" href="/blogs">BLOGS</a>
+          <a class="nf-nav-btn" href="/auth">SIGN-IN / SIGN-UP</a>
+        </header>
+
+        <!-- SMALL LOGO -->
+        <div class="nf-logo nf-logo--small">
+          <a href="/" aria-label="Go to Alpha Archives home">
+            <img src="/images/AlphaArchives-Logo.png" alt="Alpha Archives" class="nf-logo-img" />
+          </a>
+        </div>
+
+          <!-- VOID HERO (center) -->
+          <section class="nf-hero">
+            <div class="nf-hero-card">
+              <div class="nf-code">404</div>
+              <div class="nf-void-title">You fell into the void.</div>
+              <div class="nf-void-sub">Chunk not found — returning to spawn…</div>
+
+              <!-- Debug-style box -->
+              <div class="nf-debug">
+                <div class="nf-debug-line"><span class="k">ERROR</span> chunk not found</div>
+                <div class="nf-debug-line"><span class="k">PATH</span> <span class="v"><%= (typeof req !== "undefined" && req.originalUrl) ? req.originalUrl : "" %></span></div>
+                <div class="nf-debug-line"><span class="k">SEED</span> <span class="v">alpha-archives</span></div>
+                <div class="nf-debug-line"><span class="k">COORDS</span> <span class="v">X: ?  Y: ?  Z: ?</span></div>
+                <div class="nf-debug-line"><span class="k">TIP</span> <span class="v">Try /blogs or /about</span></div>
+              </div>
+              <a href="/" class="nf-btn">RETURN TO SPAWN</a>
+            </div>
+          </section>
+        <!-- FOOTER PILL -->
+          <footer class="nf-footer-nav">
+            <div class="nf-footer-inner">
+              <p class="nf-footer-main">© <%= new Date().getFullYear() %> Alpha Archives</p>
+              <p class="nf-footer-sub">All rights reserved · Fan project · Not affiliated with Mojang</p>
+            </div>
+          </footer>
+        </section>
+    </main>
+  </div>
+</body>
+</html>

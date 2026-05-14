@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "Create Account - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+<body class="signup-bg">
+  <div class="signup-overlay">
+    <main class="signup-shell">
+      <section class="signup-panel">
+        <header class="signup-nav">
+          <a class="signup-nav-btn" href="/about">ABOUT</a>
+          <a class="signup-nav-btn" href="/blogs">BLOGS</a>
+          <a class="signup-nav-btn" href="/auth">SIGN-IN / SIGN-UP</a>
+        </header>
+        <div class="signup-logo signup-logo--small">
+          <a href="/" aria-label="Go to Alpha Archives home">
+            <img
+              src="/images/AlphaArchives-Logo.png"
+              alt="Alpha Archives"
+              class="signup-logo-img"
+            />
+          </a>
+        </div>
+        <section class="signup-hero">
+          <div class="signup-hero-card">
+            <div class="signup-title">Create an Account</div>
+            <div class="signup-sub">
+              Join Alpha Archives and share your Alpha Minecraft memories.
+            </div>
+            <% if (error) { %>
+              <p class="signup-error"><%= error %></p>
+            <% } %>
+            <form action="/signup" method="POST" class="signup-form">
+              <div class="signup-field">
+                <label>Username</label>
+                <input type="text" name="username" required />
+              </div>
+              <div class="signup-field">
+                <label>Password</label>
+                <input type="password" name="password" required />
+              </div>
+              <div class="avatar-picker">
+                <input type="radio" name="avatar" value="steve" id="avatar-steve" checked>
+                  <label for="avatar-steve">
+                    <img src="/avatars/steve.png" alt="Steve">
+                  </label>
+                <input type="radio" name="avatar" value="alex" id="avatar-alex">
+                  <label for="avatar-alex">
+                    <img src="/avatars/alex.png" alt="Alex">
+                  </label>
+                <input type="radio" name="avatar" value="creeper" id="avatar-creeper">
+                  <label for="avatar-creeper">
+                    <img src="/avatars/creeper.png" alt="Creeper">
+                  </label>
+              </div>
+              <div class="signup-field">
+                <label>Favourite Alpha version</label>
+                <select name="favVersion" required>
+                  <option value="Alpha 1.0.4">Alpha 1.0.4</option>
+                  <option value="Alpha 1.1.2">Alpha 1.1.2</option>
+                  <option value="Alpha 1.2.0">Alpha 1.2.0</option>
+                  <option value="Alpha 1.2.6">Alpha 1.2.6</option>
+                </select>
+              </div>
+              <button type="submit" class="signup-btn signup-btn--full">
+                CREATE ACCOUNT
+              </button>
+              <p class="signup-foot">
+                Already have an account?
+                <a href="/login" class="signup-link">Sign in</a>
+              </p>
+            </form>
+          </div>
+        </section>
+        <footer class="signup-footer-nav">
+          <div class="signup-footer-inner">
+            <p class="signup-footer-main">
+              © <%= new Date().getFullYear() %> Alpha Archives
+            </p>
+            <p class="signup-footer-sub">
+              All rights reserved · Fan project · Not affiliated with Mojang
+            </p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

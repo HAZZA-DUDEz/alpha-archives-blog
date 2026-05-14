@@ -1,0 +1,21 @@
+<header class="top-nav">
+  <div class="nav-inner">
+    <a href="/" class="site-logo-link">ALPHA ARCHIVES</a>
+
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/blogs">Blogs</a>
+
+      <% if (currentUser) { %>
+        <a href="/compose">Write</a>
+        <a href="/users/<%= currentUser %>">Account</a>
+
+        <form action="/logout" method="POST" class="logout-form">
+          <button type="submit">Logout</button>
+        </form>
+      <% } else { %>
+        <a href="/auth">Account</a>
+      <% } %>
+    </nav>
+  </div>
+</header>

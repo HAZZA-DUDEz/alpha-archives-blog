@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "Create Blog - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+<body class="compose-bg">
+  <div class="compose-overlay">
+    <main class="compose-shell">
+      <section class="compose-panel">
+        <!-- TOP NAV -->
+        <header class="compose-nav">
+          <a class="compose-nav-btn" href="/about">ABOUT</a>
+          <a class="compose-nav-btn" href="/blogs">BLOGS</a>
+          <form action="/logout" method="POST" class="compose-logout-form">
+            <button type="submit" class="compose-nav-btn compose-nav-btn--button">
+              LOGOUT
+            </button>
+          </form>
+        </header>
+        <!-- LOGO -->
+        <div class="compose-logo">
+          <a href="/" aria-label="Go to Alpha Archives home">
+            <img
+              src="/images/AlphaArchives-Logo.png"
+              alt="Alpha Archives"
+              class="compose-logo-img"
+            />
+          </a>
+        </div>
+        <!-- HERO -->
+        <section class="compose-hero">
+          <div class="compose-card">
+            <h1 class="compose-title">Create a New Blog</h1>
+            <p class="compose-sub">Share your Alpha discoveries with the community.</p>
+            <!-- CENTERED USER PROFILE -->
+            <div class="compose-profile">
+              <img
+                class="compose-avatar"
+                src="<%= (user && user.avatar) ? ('/avatars/' + user.avatar + '.png') : '/avatars/default.png' %>"
+                alt="User avatar"
+              />
+              <div class="compose-username"><%= user.username %></div>
+              <div class="compose-meta">
+                Favourite Version:
+                <span><%= (user && user.favVersion) ? user.favVersion : "Alpha" %></span>
+              </div>
+            </div>
+            <!-- FORM -->
+            <form class="compose-form" action="/compose" method="POST">
+              <div class="compose-field">
+                <label>Title</label>
+                <input type="text" name="title" required placeholder="Bee Mod?" />
+              </div>
+              <div class="compose-field">
+                <label>Category</label>
+                <select name="subject" required>
+                  <option>Builds</option>
+                  <option>Mods</option>
+                  <option>Stories</option>
+                  <option>Screenshots</option>
+                  <option>Questions</option>
+                </select>
+              </div>
+              <!-- MATCHED ROW -->
+              <div class="compose-row">
+                <div class="compose-field">
+                  <label>Alpha Version</label>
+                  <select name="alphaVersion" required>
+                    <option>Alpha 1.0.4</option>
+                    <option>Alpha 1.1.2</option>
+                    <option>Alpha 1.2.0</option>
+                    <option selected>Alpha 1.2.6</option>
+                  </select>
+                  <!-- spacer line so height matches the right column -->
+                  <p class="compose-hint">&nbsp;</p>
+                </div>
+                <div class="compose-field">
+                  <label>Image URL (Optional)</label>
+                  <input
+                    type="text"
+                    name="imageUrl"
+                    placeholder="Leave empty to use default-post.png"
+                  />
+                  <p class="compose-hint">If left empty, we’ll use the default post image.</p>
+                </div>
+              </div>
+              <div class="compose-field">
+                <label>Content</label>
+                <textarea
+                  name="content"
+                  required
+                  placeholder="Write your post here..."
+                ></textarea>
+              </div>
+              <div class="compose-actions">
+                <button type="submit" class="compose-btn">PUBLISH</button>
+                <a href="/account" class="compose-btn compose-btn--ghost">CANCEL</a>
+              </div>
+            </form>
+          </div>
+        </section>
+        <!-- FOOTER -->
+        <footer class="compose-footer-nav">
+          <div class="compose-footer-inner">
+            <p class="compose-footer-main">© <%= new Date().getFullYear() %> Alpha Archives</p>
+            <p class="compose-footer-sub">Fan project · Not affiliated with Mojang</p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

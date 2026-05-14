@@ -1,0 +1,122 @@
+/* Site Background */
+body.alpha-bg {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #fff;
+  background: url("/images/Background.png") center/cover fixed no-repeat;
+}
+
+.site-overlay {
+  min-height: 100vh;
+  background: rgba(0,0,0,0.18);
+  display: grid;
+  place-items: start center;
+  padding: 2rem 1rem;
+}
+
+.site-shell {
+  width: min(1250px, 96%);
+}
+
+.page-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6.5rem 1.5rem 3rem;
+}
+
+.top-nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 14px 18px;
+}
+
+.nav-inner{
+  width: min(1250px, 96%);
+  margin: 0 auto;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5482ff, #005c79);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px);
+}
+
+.site-logo-link{
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-family: "OpenSans", system-ui, sans-serif;
+  text-transform: uppercase;
+}
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.95rem;
+}
+
+.nav-links a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: rgba(178, 223, 241, 0.52);
+  color: #0b3c4a;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: "OpenSans", system-ui, sans-serif;
+  backdrop-filter: blur(10px);
+  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+}
+
+.nav-links a:hover{
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 26px rgba(0,0,0,0.26);
+}
+
+.logout-form{
+  display: inline;
+}
+
+.logout-form button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: rgba(178, 223, 241, 0.52);
+  color: #0b3c4a;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: "OpenSans", system-ui, sans-serif;
+  border: none;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+}
+
+.logout-form button:hover{
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 26px rgba(0,0,0,0.26);
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  padding: 0 0 1rem;
+}

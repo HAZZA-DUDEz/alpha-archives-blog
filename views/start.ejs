@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><%= pageTitle || "Alpha Archives" %></title>
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/start.css" />
+</head>
+<body class="start-bg">
+  <div class="start-overlay">
+    <main class="start-shell">
+      <section class="start-panel">
+        <header class="start-nav">
+          <a class="start-nav-btn" href="/about">ABOUT</a>
+          <a class="start-nav-btn" href="/blogs">VIEW BLOGS</a>
+          <a class="start-nav-btn" href="/auth">SIGN-IN / SIGN-UP</a>
+        </header>
+        <div class="start-logo">
+          <img src="/images/AlphaArchives-Logo.png" alt="Alpha Archives" class="start-logo-img" />
+        </div>
+        <aside class="start-about">
+          <h3>Everything Alpha Minecraft.</h3>
+          <p>
+            Welcome to our friendly growing community!
+            <br><br>
+            We’re bringing the Alpha days back into the old days.
+            Come chat, share screenshots, builds, mods, and stories
+            all things Alpha Minecraft, right here.
+          </p>
+        </aside>
+        <div class="start-feature-wrap">
+          <div class="start-pill">TRENDING</div>
+            <article class="start-feature">
+              <div class="start-feature-media">
+                <div class="start-feature-image">
+                  <img src="/images/default-feature.png" alt="Trending post" />
+                </div>
+                <button class="start-arrow left" aria-label="Previous">‹</button>
+                <button class="start-arrow right" aria-label="Next">›</button>
+              </div>
+              <div class="start-feature-bottom">
+                <h2>My Alpha World</h2>
+                <p class="start-feature-sub">#Trending Blogs</p>
+                <p class="start-feature-snippet">
+                A peaceful Alpha world exploring forests, hills, and early survival vibes…
+                </p>
+                <img
+                  class="start-feature-avatar"
+                  src="/avatars/default.png"
+                  alt="User avatar"
+                />
+                <p class="start-feature-user">HAZZADUDE</p>
+                <a class="start-view-btn" href="/blogs">VIEW</a>
+              </div>
+            </article>
+          </div>
+          <div class="start-social" aria-label="Social links">
+            <a href="https://www.instagram.com" aria-label="Instagram">
+              <img src="/icons/instagram-white.png" alt="Instagram Icon">
+            </a>
+            <a href="https://www.facebook.com" aria-label="Facebook">
+              <img src="/icons/facebook-white.png" alt="Facebook Icon">
+            </a>
+            <a href="https://www.twitter.com" aria-label="X">
+              <img src="/icons/twitter-white.png" alt="Twitter Icon">
+            </a>
+            <a href="https://www.discord.com" aria-label="Discord">
+              <img src="/icons/discord-white.png" alt="Discord Icon">
+            </a>
+          </div>
+        <footer class="start-footer-nav">
+          <div class="start-footer-inner">
+            <p class="start-footer-main">
+            © <%= new Date().getFullYear() %> Alpha Archives
+            </p>
+            <p class="start-footer-sub">
+            All rights reserved · Fan project · Not affiliated with Mojang
+            </p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

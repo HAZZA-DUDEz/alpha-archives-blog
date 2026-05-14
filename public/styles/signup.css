@@ -1,0 +1,223 @@
+/* Signup Page */
+
+body.signup-bg {
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #fff;
+  background: url("/images/Background.png") center/cover fixed no-repeat;
+}
+
+.signup-overlay {
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.08);
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding: 2rem 1rem;
+}
+
+.signup-shell {
+  width: min(1500px, 96%);
+  margin: 0 auto;
+}
+
+.signup-panel {
+  width: 100%;
+  border-radius: 92px;
+  padding: 120px 40px 90px;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 20px 70px rgba(0,0,0,0.45);
+  position: relative;
+}
+
+.signup-nav {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 160px);
+  max-width: 1600px;
+  height: 90px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5482ff 0%, #005c79 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0 75px;
+  z-index: 5;
+}
+
+.signup-nav-btn {
+  justify-self: center;
+  padding: 14px 65px;
+  border-radius: 999px;
+  background: rgba(178, 223, 241, 0.52);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+}
+
+.signup-nav-btn:nth-child(1){ justify-self: start; }
+.signup-nav-btn:nth-child(2){ justify-self: center; }
+.signup-nav-btn:nth-child(3){ justify-self: end; }
+
+.signup-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: -20px;
+  margin-bottom: 12px;
+}
+
+.signup-logo a{
+  display: inline-block;
+}
+
+.signup-logo-img{
+  width: min(520px, 78%);
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 10px 28px rgba(0,0,0,0.35));
+}
+
+.signup-logo--small .signup-logo-img{
+  width: min(460px, 72%);
+  max-width: 460px;
+}
+
+.signup-hero {
+  display: grid;
+  place-items: center;
+}
+
+.signup-hero-card {
+  width: min(760px, 92%);
+  padding: 22px 22px;
+  border-radius: 26px;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 74, 173, 0.55),
+    rgba(203, 108, 230, 0.55)
+  );
+  backdrop-filter: blur(8px);
+}
+
+.signup-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.signup-sub {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+.signup-form {
+  text-align: left;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.avatar-picker {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 12px 0 6px;
+}
+
+.avatar-picker input {
+  display: none;
+}
+
+.avatar-picker label {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.25);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.avatar-picker img {
+  width: 42px;
+  height: 42px;
+  image-rendering: pixelated;
+}
+
+.avatar-picker input:checked + label {
+  box-shadow: 0 0 0 3px rgba(178, 223, 241, 0.8);
+  transform: scale(1.05);
+}
+
+.signup-field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.signup-field input,
+.signup-field select {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+}
+
+.signup-btn {
+  margin-top: 8px;
+  padding: 14px 44px;
+  border-radius: 999px;
+  background: rgba(178, 223, 241, 0.65);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+}
+
+.signup-btn--full {
+  width: 100%;
+}
+
+.signup-foot {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.signup-link {
+  color: #fff;
+  font-weight: 700;
+}
+
+.signup-footer-nav {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 120px);
+  max-width: 1200px;
+  padding: 18px 28px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(84,130,255,0.85),
+    rgba(0,92,121,0.85)
+  );
+  text-align: center;
+}

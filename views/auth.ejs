@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "Account - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+
+<body class="auth-bg">
+  <div class="auth-overlay">
+    <main class="auth-shell">
+      <section class="auth-panel">
+        <!-- NAV (same style system, 2 buttons) -->
+        <header class="auth-nav">
+          <div class="auth-nav-center">
+            <a class="auth-nav-btn" href="/blogs">BLOGS</a>
+            <a class="auth-nav-btn" href="/about">ABOUT</a>
+          </div>
+        </header>
+        <!-- LOGO (click -> home) -->
+        <div class="auth-logo">
+          <a href="/" aria-label="Go to Alpha Archives home">
+            <img
+              src="/images/AlphaArchives-Logo.png"
+              alt="Alpha Archives"
+              class="auth-logo-img"
+            />
+          </a>
+        </div>
+        <!-- ACCOUNT BOX -->
+        <section class="auth-card">
+          <h1 class="auth-card-title">Alpha Archives Account</h1>
+          <p class="auth-card-lead">
+            Sign in to your Alpha Archives account<br />
+            or create a new account.
+          </p>
+            <div class="auth-two-col">
+              <div class="auth-col">
+                <p class="auth-col-label">For existing users.</p>
+                <a class="auth-action" href="/login">Sign In</a>
+              </div>
+              <div class="auth-col">
+                <p class="auth-col-label">Don’t have an account?</p>
+                <a class="auth-action" href="/signup">Create an account</a>
+              </div>
+            </div>
+          </section>
+          <!-- REASONS BOX -->
+          <section class="auth-reasons">
+            <h2 class="auth-reasons-title">Reasons to join Alpha Archives</h2>
+            <div class="auth-reasons-list">
+              <div class="auth-reason">
+                <h3>Support other creators and players</h3>
+                <p>
+                  We really appreciate feedback on our projects and work.
+                  From comments to screenshots, we value all forms of engagement.
+                </p>
+              </div>
+              <div class="auth-reason">
+                <h3>Share your creativity and projects with the world</h3>
+                <p>
+                  Upload your blogs, events, builds, and images from your
+                  Alpha Minecraft worlds — whether survival or creative.
+                </p>
+              </div>
+
+              <div class="auth-reason">
+                <h3>Grow the Alpha Community</h3>
+                <p>
+                  We can’t wait to welcome more players into the community
+                  and help others discover or rediscover Alpha Minecraft.
+                </p>
+              </div>
+            </div>
+          </section>
+          <!-- SOCIAL STRIP -->
+          <div class="auth-social" aria-label="Social links">
+            <a href="#" aria-label="Instagram">
+              <img src="/icons/instagram-white.png" alt="Instagram Icon">
+            </a>
+            <a href="#" aria-label="Facebook">
+              <img src="/icons/facebook-white.png" alt="Facebook Icon">
+            </a>
+            <a href="#" aria-label="X">
+              <img src="/icons/twitter-white.png" alt="Twitter Icon">
+            </a>
+            <a href="#" aria-label="Discord">
+              <img src="/icons/discord-white.png" alt="Discord Icon">
+            </a>
+          </div>
+        <!-- FOOTER PILL -->
+        <footer class="auth-footer-nav">
+          <div class="auth-footer-inner">
+            <p class="auth-footer-main">© <%= new Date().getFullYear() %> Alpha Archives</p>
+            <p class="auth-footer-sub">All rights reserved · Fan project · Not affiliated with Mojang</p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

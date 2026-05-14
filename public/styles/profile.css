@@ -1,0 +1,10 @@
+.profile-page {
+  margin-top: 4.5rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}

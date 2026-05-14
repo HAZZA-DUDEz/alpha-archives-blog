@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "Profile - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+<body class="alpha-bg">
+  <%- include("partials/header") %>
+  <main class="page-content">
+    <section class="profile-page">
+      <div class="profile-header">
+        <img
+          src="/avatars/<%= user.avatar %>.png"
+          class="avatar large"
+          alt="<%= user.username %>"
+        />
+        <div>
+          <h2><%= user.username %></h2>
+          <p>Favourite version: <%= user.favVersion %></p>
+        </div>
+      </div>
+      <h3 class="section-title small">Posts by <%= user.username %></h3>
+      <div class="post-list">
+        <% userPosts.forEach(post => { %>
+          <article class="post-card">
+            <h3 class="post-title">
+              <a href="/posts/<%= post.id %>"><%= post.title %></a>
+            </h3>
+            <p class="post-subject"><%= post.subject %> – <%= post.alphaVersion %></p>
+          </article>
+        <% }) %>
+      </div>
+    </section>
+  </main>
+  <%- include("partials/footer") %>
+</body>
+</html>

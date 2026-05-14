@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "Post - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+<body class="postx-bg">
+  <div class="postx-overlay">
+    <main class="postx-shell">
+      <section class="postx-panel">
+        <header class="postx-nav">
+          <a class="postx-nav-btn" href="/">HOME</a>
+          <a class="postx-nav-btn" href="/blogs">BLOGS</a>
+          <a class="postx-nav-btn" href="/auth">ACCOUNT</a>
+        </header>
+        <div class="postx-logo postx-logo--small">
+          <a href="/" aria-label="Go to Alpha Archives home">
+            <img
+              src="/images/AlphaArchives-Logo.png"
+              alt="Alpha Archives"
+              class="postx-logo-img"
+            />
+          </a>
+        </div>
+        <article class="postx-card">
+          <header class="postx-top">
+            <div class="postx-author">
+              <img
+                src="<%= post.authorAvatar || '/avatars/default.png' %>"
+                class="postx-avatar"
+                alt="<%= post.author %>"
+              />
+              <div class="postx-author-text">
+                <div class="postx-author-name"><%= post.author %></div>
+                <div class="postx-author-version"><%= post.alphaVersion %></div>
+                <div class="postx-date">
+                  <%= new Date(post.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) %>
+                </div>
+              </div>
+            </div>
+            <div class="postx-meta">
+              <span class="postx-subject">#<%= post.subject %></span>
+            </div>
+          </header>
+          <h1 class="postx-title"><%= post.title %></h1>
+          <% if (post.imageUrl) { %>
+            <div class="postx-media">
+              <img
+                src="<%= post.imageUrl %>"
+                alt="<%= post.title %>"
+                class="postx-image"
+              />
+            </div>
+          <% } %>
+          <div class="postx-body">
+            <p class="postx-content"><%= post.content %></p>
+          </div>
+          <div class="postx-actions">
+            <a class="postx-btn" href="/blogs">← Back to Blogs</a>
+          </div>
+        </article>
+        <div class="postx-social" aria-label="Social links">
+          <a href="#" aria-label="Instagram"><img src="/icons/instagram-white.png" alt="Instagram Icon"></a>
+          <a href="#" aria-label="Facebook"><img src="/icons/facebook-white.png" alt="Facebook Icon"></a>
+          <a href="#" aria-label="X"><img src="/icons/twitter-white.png" alt="Twitter Icon"></a>
+          <a href="#" aria-label="Discord"><img src="/icons/discord-white.png" alt="Discord Icon"></a>
+        </div>
+        <footer class="postx-footer-nav">
+          <div class="postx-footer-inner">
+            <p class="postx-footer-main">© <%= new Date().getFullYear() %> Alpha Archives</p>
+            <p class="postx-footer-sub">All rights reserved · Fan project · Not affiliated with Mojang</p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

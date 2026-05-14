@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle || "Blogs - Alpha Archives" %></title>
+  <%- include("partials/head") %>
+</head>
+<body class="blogs-bg">
+  <div class="blogs-overlay">
+    <main class="blogs-shell">
+      <section class="blogs-panel">
+        <!-- TOP NAV -->
+        <header class="blogs-nav">
+          <a class="blogs-nav-btn" href="/">HOME</a>
+          <% if (currentUser) { %>
+            <a class="blogs-nav-btn blogs-nav-btn--primary" href="/compose">
+              CREATE BLOG
+            </a>
+          <% } else { %>
+            <a class="blogs-nav-btn blogs-nav-btn--primary" href="/auth">
+              SIGN IN TO CREATE
+            </a>
+          <% } %>
+          <a class="blogs-nav-btn" href="/account">ACCOUNT</a>
+        </header>
+        <!-- SMALL LOGO -->
+        <div class="blogs-logo blogs-logo--small">
+          <a href="/" aria-label="Go to Alpha Archives home">
+            <img
+              src="/images/AlphaArchives-Logo.png"
+              alt="Alpha Archives"
+              class="blogs-logo-img"
+            />
+          </a>
+        </div>
+        <section class="blogs-content">
+          <!-- FILTER BAR -->
+          <div class="blogs-filter">
+            <div class="blogs-filter-inner">
+              <div class="blogs-filter-group">
+                <label class="blogs-filter-label">Category</label>
+                <select class="blogs-select">
+                  <option>All</option>
+                  <option>Builds</option>
+                  <option>Mods</option>
+                  <option>Stories</option>
+                  <option>Screenshots</option>
+                  <option>Questions</option>
+                </select>
+              </div>
+              <div class="blogs-filter-group">
+                <label class="blogs-filter-label">Alpha Version</label>
+                <select class="blogs-select">
+                  <option>Any</option>
+                  <option>Alpha 1.0.4</option>
+                  <option>Alpha 1.1.2</option>
+                  <option>Alpha 1.2.0</option>
+                  <option>Alpha 1.2.6</option>
+                </select>
+              </div>
+              <a class="blogs-filter-btn" href="/blogs">Apply</a>
+            </div>
+          </div>
+          <!-- TRENDING -->
+          <% if (trendingPost) { %>
+            <div class="blogs-section-pill">TRENDING</div>
+            <article class="blogs-feature">
+              <div class="blogs-feature-media">
+                <div class="blogs-feature-image">
+                  <img
+                    src="<%= trendingPost.imageUrl || '/images/default-post.png' %>"
+                    alt="<%= trendingPost.title %>"
+                  >
+                </div>
+              </div>
+              <div class="blogs-feature-bottom">
+                <!-- Title -->
+                <h2><%= trendingPost.title %></h2>
+                <!-- Category + Version -->
+                <div class="blogs-meta-stack">
+                  <div class="blogs-tag">#<%= trendingPost.subject %></div>
+                  <div class="blogs-tag blogs-tag--muted"><%= trendingPost.alphaVersion %></div>
+                </div>
+                <!-- Snippet -->
+                <p class="blogs-feature-snippet">
+                  <%= (trendingPost.content || "").slice(0, 140) %><%= trendingPost.content?.length > 140 ? "…" : "" %>
+                </p>
+                <!-- Avatar + Name + Date (ONE LINE) -->
+                <div class="blogs-feature-userline">
+                  <div class="blogs-author">
+                    <img
+                      class="blogs-feature-avatar"
+                      src="<%= trendingPost.authorAvatar || '/avatars/default.png' %>"
+                      alt="Avatar"
+                    />
+                    <span class="blogs-feature-user"><%= trendingPost.author %></span>
+                  </div>
+                  <span class="blogs-date-bottom"><%= formatDate(trendingPost.createdAt) %></span>
+                </div>
+                <a class="blogs-view-btn" href="/posts/<%= trendingPost.id %>">VIEW</a>
+              </div>
+            </article>
+          <% } %>
+          <!-- LATEST -->
+          <h3 class="blogs-list-title">Latest Posts</h3>
+          <div class="blogs-grid blogs-grid--latest">
+            <% posts.forEach(post => { %>
+              <article class="blogs-card">
+                <div class="blogs-card-media">
+                  <img
+                    src="<%= post.imageUrl || '/images/default-post.png' %>"
+                    alt="<%= post.title %>"
+                  >
+                </div>
+                <div class="blogs-card-body">
+                  <h4 class="blogs-card-title"><%= post.title %></h4>
+                  <div class="blogs-meta-stack blogs-meta-stack--card">
+                    <div class="blogs-tag">#<%= post.subject %></div>
+                    <div class="blogs-tag blogs-tag--muted"><%= post.alphaVersion %></div>
+                  </div>
+                  <p class="blogs-card-snippet">
+                    <%= (post.content || "").slice(0, 90) %><%= post.content?.length > 90 ? "…" : "" %>
+                  </p>
+                  <div class="blogs-card-foot">
+                    <div class="blogs-author">
+                      <img
+                        class="blogs-author-avatar"
+                        src="<%= post.authorAvatar || '/avatars/default.png' %>"
+                        alt="Avatar"
+                      >
+                      <div class="blogs-author-text">
+                        <span class="blogs-author-name"><%= post.author %></span>
+                        <span class="blogs-date-bottom blogs-date-bottom--small">
+                          <%= formatDate(post.createdAt) %>
+                        </span>
+                      </div>
+                    </div>
+                    <a class="blogs-card-btn" href="/posts/<%= post.id %>">READ</a>
+                  </div>
+                </div>
+              </article>
+            <% }) %>
+          </div>
+        </section>
+        <!-- FOOTER -->
+        <footer class="blogs-footer-nav">
+          <div class="blogs-footer-inner">
+            <p class="blogs-footer-main">© <%= new Date().getFullYear() %> Alpha Archives</p>
+            <p class="blogs-footer-sub">All rights reserved · Fan project · Not affiliated with Mojang</p>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
