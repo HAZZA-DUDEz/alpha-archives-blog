@@ -20,4 +20,6 @@ Express and EJS blog-style web application inspired by retro gaming communities.
 
 ## Status
 In development.
+
+## Screenshots
 <img width="1901" height="869" alt="image" src="https://github.com/user-attachments/assets/2605a1b4-0813-4b32-bb1a-43d7fdd62bc3" />
